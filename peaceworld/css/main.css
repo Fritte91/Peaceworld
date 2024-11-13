@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+@import 'base/variables.css';
+@import 'base/reset.css';
+@import 'base/typography.css';
+
+/* Component imports */
+@import 'components/navbar.css';
+@import 'components/carousel.css';
+@import 'components/products.css';
+@import 'components/about.css';
+@import 'components/image-divider.css';
+@import 'components/events.css';
+@import 'components/news.css';
+@import 'components/contact.css';
+@import 'components/modals.css';
+
+.view-all-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    padding-bottom: 4rem;
+}
+
+.view-all-btn {
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 15px 40px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.view-all-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    box-shadow: 0 0 20px var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.view-all-btn:active {
+    transform: translateY(0);
+}
+
+/* Make sure these CSS variables are defined */
+:root {
+    --accent-color: #00ff00;
+    --background-color: #000000;
+}
+
+/* Loading Spinner */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(0, 255, 0, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--accent-color);
+    animation: spin 1s ease-in-out infinite;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.image-loaded .loading-spinner {
+    opacity: 0;
+}
+
+.product-image {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-loaded .product-image {
+    opacity: 1;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-image {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.close-btn {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}

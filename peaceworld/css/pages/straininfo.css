@@ -1,0 +1,168 @@
+.strain-info {
+    padding: 80px 20px;
+    background: linear-gradient(to bottom, #000000, #1a1a1a);
+    min-height: 100vh;
+}
+
+.strain-grid {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.strain-card {
+    perspective: 1500px;
+    height: 500px;
+}
+
+.strain-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.strain-card.flipped .strain-card-inner {
+    transform: rotateY(180deg);
+}
+
+.strain-front, .strain-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+}
+
+.strain-back {
+    transform: rotateY(180deg);
+    overflow-y: auto;
+}
+
+.strain-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.strain-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.strain-card:hover .strain-image img {
+    transform: scale(1.05);
+}
+
+.strain-name {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.strain-details {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: calc(100% - 180px);
+    padding-bottom: 15px;
+}
+
+.attributes-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.attribute-category h3 {
+    color: #00ff00;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.attribute-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background: rgba(0, 255, 0, 0.1);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: rgba(0, 255, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.more-info-btn, .close-info-btn {
+    background: linear-gradient(45deg, #00ff00, #008000);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+}
+
+.more-info-btn:hover, .close-info-btn:hover {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+}
+
+.strain-description {
+    color: #fff;
+    line-height: 1.6;
+}
+
+.strain-description h3 {
+    color: #00ff00;
+    margin: 15px 0 10px 0;
+}
+
+/* Scrollbar styling */
+.strain-back::-webkit-scrollbar {
+    width: 8px;
+}
+
+.strain-back::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.strain-back::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 0, 0.3);
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .strain-grid {
+        grid-template-columns: 1fr;
+    }
+}
