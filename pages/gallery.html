@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Peace World</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/pages/gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/brand/brandlogo.png" alt="Peace World Logo">
+                </a>
+                <a href="../index.html">
+                    <h1>Peace World</h1>
+                </a>
+            </div>
+
+            <div class="menu-icon">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#products">Products</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#events">Events</a></li>
+                <li><a href="straininfo.html">Strain Info</a></li>
+                <li><a href="../index.html#news">News</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="gallery-container">
+        <h1 class="gallery-title">Peace World Gallery</h1>
+        
+        <!-- Search Bar -->
+        <div class="gallery-search">
+            <input type="text" id="gallery-search" placeholder="Search gallery...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <!-- Gallery filters -->
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="flowers">Flowers</button>
+            <button class="filter-btn" data-category="events">Events</button>
+            <button class="filter-btn" data-category="store">Store</button>
+            <button class="filter-btn" data-category="lifestyle">Lifestyle</button>
+        </div>
+
+        <!-- Gallery grid -->
+        <div class="gallery-grid">
+            <!-- Images will be loaded here via JavaScript -->
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="close-btn">&times;</button>
+            <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="lightbox-image-container">
+                <img src="" alt="" id="lightbox-image">
+            </div>
+            <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            <div class="lightbox-info">
+                <h3></h3>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/components/mobile-menu.js"></script>
+    <script src="../js/pages/gallery.js"></script>
+</body>
+</html> 

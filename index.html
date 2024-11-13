@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peace World - Premium Cannabis Products</title>
+    <meta name="description" content="Peace World - Your premier destination for premium cannabis products, art, and merchandise. Discover our curated collection of high-quality strains and accessories.">
+    <meta name="keywords" content="cannabis, premium strains, bongs, cannabis art, merchandise, Peace World, Thailand cannabis">
+    <meta name="author" content="Peace World">
+    <meta property="og:title" content="Peace World - Premium Cannabis Products">
+    <meta property="og:description" content="Discover our curated collection of premium cannabis products, art, and merchandise.">
+    <meta property="og:image" content="../images/brand/brandlogo.png">
+    <meta property="og:url" content="https://peaceworld.com">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/components/modals.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
+    <script>
+        // Disable Mapbox GL JS's default error handling
+        mapboxgl.setRTLTextPlugin(
+            'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js',
+            null,
+            true // Lazy load the plugin
+        );
+    </script>
+    <!-- Add this to each page's head section -->
+<link rel="canonical" href="https://peaceworld.com/[respective-page]" />
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<meta name="revisit-after" content="7 days">
+<meta name="theme-color" content="#00FF00">
+    <link rel="stylesheet" href="./css/components/navbar.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./images/brand/brandlogo.png" alt="Peace World Logo">
+                </a>
+                <a href="./index.html">
+                    <h1>Peace World</h1>
+                </a>
+            </div>
+
+            <div class="menu-icon">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="./pages/straininfo.html">Strain Info</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item active">
+                <img src="./images/cannabis/weed1.jpg" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/space/space4.jpg" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/space/space5.jpg" alt="Image 3">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/space/space1.jpg" alt="Image 4">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/space/space2.jpg" alt="Image 5">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/space/space3.jpg" alt="Image 6">
+            </div>
+        </div>
+        <div class="carousel-indicators">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+        </div>
+        <button class="carousel-control prev">&lt;</button>
+        <button class="carousel-control next">&gt;</button>
+    </div>
+
+    <section class="products" id="products">
+        <h2 class="section-title">Our Flowers</h2>
+        <div class="category-selector">
+            <button class="category-btn active" data-category="indica">Indica</button>
+            <button class="category-btn" data-category="hybrid">Hybrid</button>
+            <button class="category-btn" data-category="sativa">Sativa</button>
+        </div>
+        <div class="product-grid">
+            <!-- Indica products -->
+            <div class="product-category active" data-category="indica">
+                <div class="product-card">
+                    <img src="./images/strains/bud1.png" alt="Indica 1">
+                    <h3>L.A Banana Cake</h3>
+                    <p>Description of Indica Strain 1</p>
+                </div>
+                <div class="product-card">
+                    <img src="./images/strains/bud2.png" alt="Indica 2">
+                    <h3>Ipanema</h3>
+                    <p>Description of Indica Strain 2</p>
+                </div>
+                <div class="product-card">
+                    <img src="./images/strains/bud3.png" alt="Indica 1">
+                    <h3>G41</h3>
+                    <p>Description of Indica Strain 1</p>
+                </div>
+                <div class="product-card">
+                    <img src="./images/strains/bud4.png" alt="Indica 2">
+                    <h3>Ztrawberry</h3>
+                    <p>Description of Indica Strain 2</p>
+                </div>
+                
+                
+                <!-- Add more Indica product cards as needed -->
+            </div>
+            <!-- Hybrid products -->
+            <div class="product-category" data-category="hybrid">
+                <div class="product-card">
+                    <img src="./images/strains/bud3.png" alt="Hybrid 1">
+                    <h3>Caddilac Margarita</h3>
+                    <p>Description of Hybrid Strain 1</p>
+                </div>
+                <div class="product-card">
+                    <img src="./images/strains/bud2.png" alt="Hybrid 2">
+                    <h3>Power S1</h3>
+                    <p>Description of Hybrid Strain 2</p>
+                </div>
+                <div class="product-card">
+                    <img src="./images/strains/bud1.png" alt="Hybrid 3">
+                    <h3>100k</h3>
+                    <p>Description of Hybrid Strain 1</p>
+                </div>
+                <div class="product-card">
+                    <img src="./images/strains/bud4.png" alt="Hybrid 4">
+                    <h3>Frozay Kush</h3>
+                    <p>Description of Hybrid Strain 2</p>
+                </div>
+                
+                
+                <!-- Add more Hybrid product cards as needed -->
+            </div>
+            <!-- Sativa products -->
+            <div class="product-category" data-category="sativa">
+                <div class="product-card">
+                    <img src="./images/strains/bud5.png" alt="Sativa 1">
+                    <h3>Colt .45</h3>
+                    <p>Description of Sativa Strain 1</p>
+                </div>
+                <div class="product-card">
+                    <img src="./images/strains/bud3.png" alt="Sativa 2">
+                    <h3>Sugar Cane</h3>
+                    <p>Description of Sativa Strain 2</p>
+                </div>
+                <div class="product-card">
+                    <img src="./images/strains/bud2.png" alt="Sativa 1">
+                    <h3>Runtz</h3>
+                    <p>Description of Sativa Strain 1</p>
+                </div>
+                <div class="product-card">
+                    <img src="./images/strains/bud4.png" alt="Sativa 2">
+                    <h3>Double Up</h3>
+                    <p>Description of Sativa Strain 2</p>
+                </div>
+                <!-- Add more Sativa product cards as needed -->
+            </div>
+        </div>
+        <div class="pagination">
+            <button class="page-btn prev-page">&lt;</button>
+            <span class="page-number">1</span>
+            <button class="page-btn next-page">&gt;</button>
+        </div>
+        <!-- Button for all products -->
+        <div class="view-all-container">
+            <a href="pages/allproducts.html" class="view-all-btn">
+                View All Products
+            </a>
+            <a href="pages/straininfo.html" class="view-all-btn">
+                View All Straininfo
+            </a>
+        </div>
+    </section>
+
+    <!-- Image divider section -->
+    <div class="image-divider">
+        <a href="./pages/gallery.html?category=flowers" class="divider-img large glow-effect">
+            <img src="./images/cannabis/weed1.jpg" alt="Cannabis Close-up">
+            <div class="divider-overlay">
+                <span>Flower Gallery</span>
+            </div>
+        </a>
+        <a href="./pages/gallery.html?category=events" class="divider-img medium glow-effect">
+            <img src="./images/cannabis/weed2.jpg" alt="Cannabis Plant">
+            <div class="divider-overlay">
+                <span>Event Gallery</span>
+            </div>
+        </a>
+        <a href="./pages/gallery.html?category=store" class="divider-img small glow-effect">
+            <img src="./images/cannabis/weed3.jpg" alt="Cannabis Flower">
+            <div class="divider-overlay">
+                <span>Store Gallery</span>
+            </div>
+        </a>
+        <a href="./pages/gallery.html?category=lifestyle" class="divider-img medium glow-effect">
+            <img src="./images/cannabis/weed2.jpg" alt="Cannabis Field">
+            <div class="divider-overlay">
+                <span>Lifestyle Gallery</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- About section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text neon-text-effect">
+                    <p class="paragraph-1">Welcome to PeaceWorld! Nestled in the heart of Klong Luang, we are a community-driven cannabis store with deep expertise in cultivating and nurturing premium cannabis flowers. With years of experience and extensive knowledge, we are committed to providing high-quality products that reflect our dedication to the craft.</p>
+                    <p class="paragraph-2">At PeaceWorld, we don't just grow cannabis; we're part of the cannabis culture in Thailand. We frequently attend grower contests and various weed events across the country to showcase our products, share our knowledge, and connect with other enthusiasts. For us, it's not just a business—it's a lifestyle, and we're always excited to meet like-minded people who share our passion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="events-container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="events-grid">
+                <!-- Left Side - Event Posters -->
+                <div class="poster-grid">
+                    <div class="poster-card">
+                        <img src="./images/event/cannabiscup1.jpeg" alt="Cannabis Event">
+                        <div class="poster-overlay">
+                            <h4>Cannabis Cup 2024</h4>
+                        </div>
+                    </div>
+                    <div class="poster-card">
+                        <img src="./images/event/cannabiscup2.jpg" alt="Cannabis Event">
+                        <div class="poster-overlay">
+                            <h4>Peace World Festival</h4>
+                        </div>
+                    </div>
+                    <div class="poster-card">
+                        <img src="./images/event/cannabiscup3.webp" alt="Cannabis Event">
+                        <div class="poster-overlay">
+                            <h4>Growers Meetup</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Event Calendar -->
+                <div class="upcoming-events">
+                    <h3 class="sub-title">Event Calendar</h3>
+                    <div class="events-list">
+                        <!-- Event 1 -->
+                        <div class="event-item">
+                            <div class="event-date">
+                                <span class="day">15</span>
+                                <span class="month">APR</span>
+                            </div>
+                            <div class="event-details">
+                                <h4>Pre-420 Party</h4>
+                                <p class="event-location">📍 PeaceWorld Store, Klong Luang</p>
+                                <p class="event-time">⏰ 4:20 PM - 10:00 PM</p>
+                                <button class="rsvp-btn">RSVP Now</button>
+                            </div>
+                        </div>
+
+                        <!-- Event 2 -->
+                        <div class="event-item">
+                            <div class="event-date">
+                                <span class="day">20</span>
+                                <span class="month">APR</span>
+                            </div>
+                            <div class="event-details">
+                                <h4>420 Celebration</h4>
+                                <p class="event-location">📍 Bangkok Convention Center</p>
+                                <p class="event-time">⏰ 2:00 PM - 11:00 PM</p>
+                                <button class="rsvp-btn">RSVP Now</button>
+                            </div>
+                        </div>
+
+                        <!-- Event 3 -->
+                        <div class="event-item">
+                            <div class="event-date">
+                                <span class="day">05</span>
+                                <span class="month">MAY</span>
+                            </div>
+                            <div class="event-details">
+                                <h4>Growers Workshop</h4>
+                                <p class="event-location">📍 PeaceWorld Store, Klong Luang</p>
+                                <p class="event-time">⏰ 1:00 PM - 5:00 PM</p>
+                                <button class="rsvp-btn">RSVP Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news" id="news">
+        <div class="news-container">
+            <h2 class="section-title">Latest News</h2>
+            
+            <!-- News Slider -->
+            <div class="news-slider-container">
+                <button class="slider-btn prev-btn">&lt;</button>
+                
+                <div class="news-slider">
+                    <!-- News Article 1 -->
+                    <div class="news-item">
+                        <img src="./images/news/news1.jpg" alt="News Article 1" onclick="openNewsModal(this)">
+                    </div>
+                    
+                    <!-- News Article 2 -->
+                    <div class="news-item">
+                        <img src="./images/news/news2.jpg" alt="News Article 2" onclick="openNewsModal(this)">
+                    </div>
+                    
+                    <!-- News Article 3 -->
+                    <div class="news-item">
+                        <img src="./images/news/news3.jpg" alt="News Article 3" onclick="openNewsModal(this)">
+                    </div>
+
+                    <!-- News Article 4 -->
+                    <div class="news-item">
+                        <img src="./images/news/news4.jpg" alt="News Article 4" onclick="openNewsModal(this)">
+                    </div>
+                </div>
+
+                <button class="slider-btn next-btn">&gt;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Contact Us</h2>
+            
+            <div class="contact-grid">
+                <!-- Map Container -->
+                <div class="map-container">
+                    <div id="map" style="width: 100%; height: 100%;"></div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h3>Visit Us</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-location-dot"></i>
+                            <p>123 Phahonyothin Rd, Klong Luang, Pathum Thani 12120</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <p>Open Daily: 12:00 AM - 00:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+66123456789">+66 123 456 789</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@peaceworld.com">info@peaceworld.com</a>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100092705770256&sk=photos" class="social-icon" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/growstorm.th/" class="social-icon" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" target="_blank">
+                            <i class="fab fa-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./js/components/mobile-menu.js"></script>
+    <script src="./js/components/modals.js"></script>
+    <script src="./js/pages/home.js"></script>
+    <!-- News Modal -->
+<div id="newsModal" class="news-modal">
+    <span class="modal-close" onclick="closeNewsModal()">&times;</span>
+    <img id="modalImage" class="modal-content">
+    <div class="zoom-controls">
+        <button class="zoom-btn zoom-in">+</button>
+        <button class="zoom-btn zoom-out">-</button>
+    </div>
+</div>
+</body>
+</html>

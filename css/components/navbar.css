@@ -1,0 +1,228 @@
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    height: 70px;
+}
+
+.navbar-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.navbar .logo a h1,
+.navbar-container .logo a h1,
+.logo a h1 {
+    color: #00ff00 !important;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    margin-left: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+}
+
+.brand-name {
+    color: var(--neon-green);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Nav menu styles */
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+/* Green line animation for desktop */
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--neon-green);
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+.nav-menu li a:hover {
+    color: var(--neon-green);
+}
+
+.nav-menu li a:hover::after {
+    width: 100%;
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    min-width: 200px;
+    padding: 1rem 0;
+    border: 1px solid var(--neon-green);
+    border-radius: 5px;
+    display: none;
+    list-style: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    color: var(--neon-green);
+}
+
+/* Mobile Menu Styles */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 25px;
+    height: 3px;
+    background-color: #00ff00;
+    margin: 5px 0;
+    transition: 0.4s;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+}
+
+/* Hamburger Animation */
+.menu-icon.change .bar1 {
+    transform: translate(0, 8px) rotate(-45deg);
+}
+
+.menu-icon.change .bar2 {
+    opacity: 0;
+}
+
+.menu-icon.change .bar3 {
+    transform: translate(0, -8px) rotate(45deg);
+}
+
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 20px;
+        text-align: center;
+        border-top: 1px solid #00ff00;
+        box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        display: block;
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
+    }
+
+    .nav-menu a {
+        font-size: 1.2rem;
+        color: #00ff00;
+        text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+    }
+
+    .nav-menu a:hover {
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.9);
+    }
+
+    /* Mobile dropdown styles */
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        border: none;
+        background-color: transparent;
+        padding: 0.5rem 0;
+        text-align: center;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+}
+
+/* Make sure no other styles are overriding */
+.navbar a,
+.navbar-container a {
+    text-decoration: none;
+    color: inherit;
+}
