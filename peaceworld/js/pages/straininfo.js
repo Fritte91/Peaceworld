@@ -6,7 +6,27 @@ document.addEventListener('DOMContentLoaded', () => {
         strainGrid.innerHTML += createStrainCard(strain);
     });
 
-    // Set up event listeners for all cards
+    // Add click event to entire cards
+    const cards = document.querySelectorAll('.strain-card');
+    cards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // If not clicking the close button, flip the card
+            if (!e.target.classList.contains('close-info-btn')) {
+                this.classList.toggle('flipped');
+            }
+        });
+
+        // Add click handler for the close button if it exists
+        const closeBtn = card.querySelector('.close-info-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent card click from triggering
+                card.classList.remove('flipped');
+            });
+        }
+    });
+
+    // Keep the existing setupCardListeners function call
     setupCardListeners();
 });
 

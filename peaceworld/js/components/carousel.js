@@ -8,7 +8,9 @@ export class Carousel {
         this.nextBtn = document.querySelector('.carousel-control.next');
         this.currentIndex = 0;
         this.interval = null;
-        
+        this.touchStartX = 0;
+        this.touchEndX = 0;
+        this.minSwipeDistance = 50; // minimum distance for a swipe to register
         this.init();
     }
 
@@ -30,6 +32,39 @@ export class Carousel {
         // Pause on hover
         this.carousel.addEventListener('mouseenter', () => this.pauseAutoSlide());
         this.carousel.addEventListener('mouseleave', () => this.startAutoSlide());
+         // Add touch events
+        this.carousel.addEventListener('touchstart', (e) => this.handleTouchStart(e));
+        this.carousel.addEventListener('touchmove', (e) => this.handleTouchMove(e));
+        this.carousel.addEventListener('touchend', (e) => this.handleTouchEnd(e));
+    }
+
+    handleTouchStart(e) {
+        this.touchStartX = e.touches[0].clientX;
+        this.pauseAutoSlide(); // Pause auto-sliding while touching
+    }
+
+    handleTouchMove(e) {
+        this.touchEndX = e.touches[0].clientX;
+    }
+
+    handleTouchEnd(e) {
+        const swipeDistance = this.touchEndX - this.touchStartX;
+        
+        if (Math.abs(swipeDistance) > this.minSwipeDistance) {
+            if (swipeDistance > 0) {
+                // Swiped right - go to previous slide
+                this.prevSlide();
+            } else {
+                // Swiped left - go to next slide
+                this.nextSlide();
+            }
+        }
+        
+        // Reset touch coordinates
+        this.touchStartX = 0;
+        this.touchEndX = 0;
+        
+        this.startAutoSlide(); // Resume auto-sliding after touch
     }
 
     // ... rest of carousel methods

@@ -1,0 +1,38 @@
+.map-container {
+    width: 100% !important;
+    height: 400px !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2) !important;
+    position: relative !important;
+}
+
+#map {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+}
+
+/* Custom marker and popup styles to match your theme */
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+    background: rgba(0, 0, 0, 0.9);
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.mapboxgl-popup-content h3 {
+    color: #00ff00;
+    margin: 0;
+    padding: 10px 0 5px;
+}
+
+.mapboxgl-popup-content p {
+    color: #fff;
+    margin: 0;
+    padding: 5px 0 10px;
+} 

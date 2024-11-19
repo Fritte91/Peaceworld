@@ -13,6 +13,7 @@
     <meta property="og:url" content="https://peaceworld.com">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/components/modals.css">
+    <link rel="stylesheet" href="./css/components/map.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
@@ -35,7 +36,7 @@
 <body>
     <nav class="navbar">
         <div class="navbar-container">
-            <div class="logo">
+            <div class="logo logo-img">
                 <a href="./index.html">
                     <img src="./images/brand/brandlogo.png" alt="Peace World Logo">
                 </a>
@@ -386,19 +387,20 @@
                             <i class="fas fa-envelope"></i>
                             <a href="mailto:info@peaceworld.com">info@peaceworld.com</a>
                         </div>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=100092705770256&sk=photos" class="social-icon" target="_blank">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="https://www.instagram.com/growstorm.th/" class="social-icon" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon" target="_blank">
+                                <i class="fab fa-line"></i>
+                            </a>
+                        </div>
                     </div>
 
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=100092705770256&sk=photos" class="social-icon" target="_blank">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="https://www.instagram.com/growstorm.th/" class="social-icon" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-icon" target="_blank">
-                            <i class="fab fa-line"></i>
-                        </a>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -407,6 +409,7 @@
     <script src="./js/components/mobile-menu.js"></script>
     <script src="./js/components/modals.js"></script>
     <script src="./js/pages/home.js"></script>
+    <script src="./js/components/map.js"></script>
     <!-- News Modal -->
 <div id="newsModal" class="news-modal">
     <span class="modal-close" onclick="closeNewsModal()">&times;</span>
