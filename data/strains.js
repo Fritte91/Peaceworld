@@ -52,5 +52,77 @@ const strainsData = [
         effects: ["Hungry", "Happy", "Relaxed"],
         genetics: "A unique cross of Zkittlez and Fruit Stripe genetics.",
         description: "Offers a fruity, candy-like flavor profile with balanced effects."
+    },
+    {
+        id: 7,
+        name: "Rhubarb Pizza",
+        image: "../images/strains/bud2.png",
+        tasteProfile: ["Limonene", "Sweet Orange"],
+        effects: ["Hungry", "Happy", "Relaxed"],
+        genetics: "A unique cross of Zkittlez and Fruit Stripe genetics.",
+        description: "Offers a fruity, candy-like flavor profile with balanced effects."
+    },
+    {
+        id: 8,
+        name: "Ipanema",
+        image: "../images/strains/bud2.png",
+        tasteProfile: ["Candy Cream", "Limonene", "Spice"],
+        effects: ["Sleepy", "Happy", "Relaxed"],
+        genetics: "A unique cross of Zkittlez and Fruit Stripe genetics.",
+        description: "Offers a fruity, candy-like flavor profile with balanced effects."
+    },
+    {
+        id: 9,
+        name: "Falcon Heacy",
+        image: "../images/strains/bud2.png",
+        tasteProfile: ["Lemon Kush", "Limonene", "Pinene"],
+        effects: ["Sleepy", "Happy", "Relaxed"],
+        genetics: "A unique cross of Zkittlez and Fruit Stripe genetics.",
+        description: "Offers a fruity, candy-like flavor profile with balanced effects."
+    },
+    {
+        id: 10,
+        name: "G41",
+        image: "../images/strains/bud2.png",
+        tasteProfile: ["Myrcene", "Pinene", "Sweet Pine"],
+        effects: ["Sleepy", "Happy", "Relaxed"],
+        genetics: "A unique cross of Zkittlez and Fruit Stripe genetics.",
+        description: "Offers a fruity, candy-like flavor profile with balanced effects."
+    },
+    {
+        id: 11,
+        name: "DoubleUp",
+        image: "../images/strains/bud2.png",
+        tasteProfile: ["Limonene", "Candy Fruit", "Linalool"],
+        effects: ["Giggly", "Happy", "Relaxed"],
+        genetics: "A unique cross of Zkittlez and Fruit Stripe genetics.",
+        description: "Offers a fruity, candy-like flavor profile with balanced effects."
+    },
+    {
+        id: 12,
+        name: "Banana Hammock",
+        image: "../images/strains/bud2.png",
+        tasteProfile: ["Creamy Kush", "Humulene", "Spice"],
+        effects: ["Happy", "Relaxed"],
+        genetics: "A unique cross of Zkittlez and Fruit Stripe genetics.",
+        description: "Offers a fruity, candy-like flavor profile with balanced effects."
+    },
+    {
+        id: 13,
+        name: "Frozay Kush",
+        image: "../images/strains/bud2.png",
+        tasteProfile: ["90's Kush", "Creamy Milk", "Humulene"],
+        effects: ["Sleepy", "Happy", "Relaxed"],
+        genetics: "A unique cross of Zkittlez and Fruit Stripe genetics.",
+        description: "Offers a fruity, candy-like flavor profile with balanced effects."
+    },
+    {
+        id: 14,
+        name: "Critical Orange Punch",
+        image: "../images/strains/bud2.png",
+        tasteProfile: ["Herbal", "Pepper", "Caryophylene"],
+        effects: ["Sleepy", "Happy", "Relaxed"],
+        genetics: "A unique cross of Zkittlez and Fruit Stripe genetics.",
+        description: "Offers a fruity, candy-like flavor profile with balanced effects."
     }
 ];
