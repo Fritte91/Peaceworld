@@ -120,10 +120,14 @@ const imageModal = new ImageModal();
 
 // Update the openNewsModal function
 function openNewsModal(img) {
-    imageModal.openModal(img);
+    const modal = document.getElementById('newsModal');
+    const modalImg = document.getElementById('modalImage');
+    modalImg.src = img.src;
+    modal.classList.add('active');
 }
 
 // Update the closeNewsModal function
 function closeNewsModal() {
-    imageModal.closeModal();
+    const modal = document.getElementById('newsModal');
+    modal.classList.remove('active');
 }
