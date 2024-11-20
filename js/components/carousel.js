@@ -10,62 +10,103 @@ export class Carousel {
         this.interval = null;
         this.touchStartX = 0;
         this.touchEndX = 0;
-        this.minSwipeDistance = 50; // minimum distance for a swipe to register
+        this.minSwipeDistance = 50;
         this.init();
     }
 
     init() {
-        // Add event listeners
         if (this.prevBtn && this.nextBtn) {
             this.prevBtn.addEventListener('click', () => this.prevSlide());
             this.nextBtn.addEventListener('click', () => this.nextSlide());
         }
 
-        // Initialize indicators
         this.indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => this.showSlide(index));
         });
 
-        // Start auto-sliding
         this.startAutoSlide();
 
-        // Pause on hover
+        // Touch events
+        this.carousel.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
+        this.carousel.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: true });
+        this.carousel.addEventListener('touchend', () => this.handleTouchEnd(), { passive: true });
+
+        // Mouse events for desktop testing
         this.carousel.addEventListener('mouseenter', () => this.pauseAutoSlide());
         this.carousel.addEventListener('mouseleave', () => this.startAutoSlide());
-         // Add touch events
-        this.carousel.addEventListener('touchstart', (e) => this.handleTouchStart(e));
-        this.carousel.addEventListener('touchmove', (e) => this.handleTouchMove(e));
-        this.carousel.addEventListener('touchend', (e) => this.handleTouchEnd(e));
+    }
+
+    showSlide(index) {
+        // Remove active class from all items and indicators
+        this.items.forEach(item => item.classList.remove('active'));
+        this.indicators.forEach(indicator => indicator.classList.remove('active'));
+
+        // Add active class to current item and indicator
+        this.items[index].classList.add('active');
+        this.indicators[index].classList.add('active');
+        this.currentIndex = index;
+    }
+
+    nextSlide() {
+        const nextIndex = (this.currentIndex + 1) % this.items.length;
+        this.showSlide(nextIndex);
+    }
+
+    prevSlide() {
+        const prevIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+        this.showSlide(prevIndex);
+    }
+
+    startAutoSlide() {
+        this.pauseAutoSlide(); // Clear any existing interval
+        this.interval = setInterval(() => this.nextSlide(), 5000);
+    }
+
+    pauseAutoSlide() {
+        if (this.interval) {
+            clearInterval(this.interval);
+            this.interval = null;
+        }
     }
 
     handleTouchStart(e) {
         this.touchStartX = e.touches[0].clientX;
-        this.pauseAutoSlide(); // Pause auto-sliding while touching
+        this.pauseAutoSlide();
     }
 
     handleTouchMove(e) {
+        if (!this.touchStartX) return;
         this.touchEndX = e.touches[0].clientX;
+        
+        // Prevent default scrolling while swiping
+        const swipeDistance = this.touchEndX - this.touchStartX;
+        if (Math.abs(swipeDistance) > 10) {
+            e.preventDefault();
+        }
     }
 
-    handleTouchEnd(e) {
+    handleTouchEnd() {
+        if (!this.touchStartX || !this.touchEndX) return;
+
         const swipeDistance = this.touchEndX - this.touchStartX;
         
         if (Math.abs(swipeDistance) > this.minSwipeDistance) {
             if (swipeDistance > 0) {
-                // Swiped right - go to previous slide
                 this.prevSlide();
             } else {
-                // Swiped left - go to next slide
                 this.nextSlide();
             }
         }
-        
+
         // Reset touch coordinates
         this.touchStartX = 0;
         this.touchEndX = 0;
         
-        this.startAutoSlide(); // Resume auto-sliding after touch
+        this.startAutoSlide();
     }
+}
 
-    // ... rest of carousel methods
-} 
+// Initialize carousel when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new Carousel();
+}); 

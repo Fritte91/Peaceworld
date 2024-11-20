@@ -1,76 +1,67 @@
-class NewsModal {
+class ImageModal {
     constructor() {
-        this.modal = null;
-        this.image = null;
+        this.modal = document.getElementById('newsModal');
+        this.modalImg = document.getElementById('modalImage');
+        this.closeBtn = document.querySelector('.modal-close');
+        this.zoomInBtn = document.querySelector('.zoom-btn.zoom-in');
+        this.zoomOutBtn = document.querySelector('.zoom-btn.zoom-out');
+        
         this.scale = 1;
         this.isDragging = false;
         this.startPos = { x: 0, y: 0 };
         this.currentPos = { x: 0, y: 0 };
+        
         this.init();
     }
 
     init() {
-        // Create modal HTML
-        const modalHTML = `
-            <div class="news-modal">
-                <span class="news-modal-close">&times;</span>
-                <img class="news-modal-content">
-                <div class="zoom-controls">
-                    <button class="zoom-btn zoom-in">+</button>
-                    <button class="zoom-btn zoom-out">-</button>
-                </div>
-            </div>
-        `;
-        document.body.insertAdjacentHTML('beforeend', modalHTML);
-
-        // Get elements
-        this.modal = document.querySelector('.news-modal');
-        this.image = this.modal.querySelector('.news-modal-content');
-
-        // Setup event listeners
-        this.setupEventListeners();
-    }
-
-    setupEventListeners() {
         // Close button
-        this.modal.querySelector('.news-modal-close').onclick = () => this.close();
+        this.closeBtn.onclick = () => this.closeModal();
 
         // Zoom controls
-        this.modal.querySelector('.zoom-in').onclick = () => this.zoom(0.1);
-        this.modal.querySelector('.zoom-out').onclick = () => this.zoom(-0.1);
+        this.zoomInBtn.onclick = () => this.zoom(0.2);
+        this.zoomOutBtn.onclick = () => this.zoom(-0.2);
 
-        // Dragging
-        this.image.addEventListener('mousedown', (e) => this.startDragging(e));
-        window.addEventListener('mousemove', (e) => this.drag(e));
-        window.addEventListener('mouseup', () => this.stopDragging());
+        // Drag functionality
+        this.modalImg.addEventListener('mousedown', (e) => this.startDragging(e));
+        document.addEventListener('mousemove', (e) => this.drag(e));
+        document.addEventListener('mouseup', () => this.stopDragging());
 
-        // Close on background click
-        this.modal.addEventListener('click', (e) => {
-            if (e.target === this.modal) this.close();
-        });
+        // Touch events
+        this.modalImg.addEventListener('touchstart', (e) => this.startDragging(e));
+        document.addEventListener('touchmove', (e) => this.drag(e));
+        document.addEventListener('touchend', () => this.stopDragging());
 
-        // Mouse wheel zoom
+        // Wheel zoom
         this.modal.addEventListener('wheel', (e) => {
             e.preventDefault();
-            const delta = e.deltaY > 0 ? -0.1 : 0.1;
+            const delta = e.deltaY * -0.01;
             this.zoom(delta);
         });
 
-        // Escape key to close
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.modal.style.display === 'block') {
-                this.close();
-            }
-        });
+        // Double click to reset
+        this.modalImg.addEventListener('dblclick', () => this.reset());
     }
 
-    open(imgElement) {
-        this.image.src = imgElement.src;
-        this.modal.style.display = 'block';
-        this.reset();
+    openModal(img) {
+        this.modal.style.display = 'flex';
+        this.modalImg.src = img.src;
+        
+        // Wait for image to load before centering
+        this.modalImg.onload = () => {
+            this.reset();
+            // Ensure image is visible and centered
+            this.currentPos = { x: 0, y: 0 };
+            this.scale = Math.min(
+                window.innerWidth * 0.9 / this.modalImg.naturalWidth,
+                window.innerHeight * 0.9 / this.modalImg.naturalHeight,
+                1
+            );
+            this.updateTransform();
+        };
     }
 
-    close() {
+    closeModal() {
         this.modal.style.display = 'none';
         this.reset();
     }
@@ -78,47 +69,61 @@ class NewsModal {
     reset() {
         this.scale = 1;
         this.currentPos = { x: 0, y: 0 };
-        this.updateImageTransform();
+        this.updateTransform();
     }
 
     zoom(delta) {
-        this.scale = Math.min(Math.max(1, this.scale + delta), 3);
-        this.updateImageTransform();
+        const newScale = this.scale + delta;
+        if (newScale >= 0.5 && newScale <= 4) {
+            this.scale = newScale;
+            this.updateTransform();
+        }
     }
 
     startDragging(e) {
-        if (this.scale > 1) {
-            this.isDragging = true;
-            this.startPos = {
-                x: e.clientX - this.currentPos.x,
-                y: e.clientY - this.currentPos.y
-            };
-        }
+        this.isDragging = true;
+        this.modalImg.classList.add('dragging');
+        
+        const point = e.touches ? e.touches[0] : e;
+        this.startPos = {
+            x: point.clientX - this.currentPos.x,
+            y: point.clientY - this.currentPos.y
+        };
     }
 
     drag(e) {
         if (!this.isDragging) return;
         e.preventDefault();
+
+        const point = e.touches ? e.touches[0] : e;
         this.currentPos = {
-            x: e.clientX - this.startPos.x,
-            y: e.clientY - this.startPos.y
+            x: point.clientX - this.startPos.x,
+            y: point.clientY - this.startPos.y
         };
-        this.updateImageTransform();
+
+        this.updateTransform();
     }
 
     stopDragging() {
         this.isDragging = false;
+        this.modalImg.classList.remove('dragging');
     }
 
-    updateImageTransform() {
-        this.image.style.transform = `translate(${this.currentPos.x}px, ${this.currentPos.y}px) scale(${this.scale})`;
+    updateTransform() {
+        const transform = `translate(${this.currentPos.x}px, ${this.currentPos.y}px) scale(${this.scale})`;
+        this.modalImg.style.transform = transform;
     }
 }
 
 // Initialize modal
-const newsModal = new NewsModal();
+const imageModal = new ImageModal();
 
-// Make it globally available
-window.openNewsModal = function(imgElement) {
-    newsModal.open(imgElement);
-};
+// Update the openNewsModal function
+function openNewsModal(img) {
+    imageModal.openModal(img);
+}
+
+// Update the closeNewsModal function
+function closeNewsModal() {
+    imageModal.closeModal();
+}

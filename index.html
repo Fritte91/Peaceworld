@@ -385,7 +385,7 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <a href="mailto:info@peaceworld.com">info@peaceworld.com</a>
+                            <a href="mailto:info@peaceworld.com">peaceworldthailand@gmail.com</a>
                         </div>
                         <div class="social-links">
                             <a href="https://www.facebook.com/profile.php?id=100092705770256&sk=photos" class="social-icon" target="_blank">
@@ -411,13 +411,20 @@
     <script src="./js/pages/home.js"></script>
     <script src="./js/components/map.js"></script>
     <!-- News Modal -->
-<div id="newsModal" class="news-modal">
+<div id="newsModal" class="news-image-modal">
     <span class="modal-close" onclick="closeNewsModal()">&times;</span>
     <img id="modalImage" class="modal-content">
     <div class="zoom-controls">
         <button class="zoom-btn zoom-in">+</button>
-        <button class="zoom-btn zoom-out">-</button>
+        <button class="zoom-btn zoom-out">−</button>
     </div>
+    <div class="zoom-level"></div>
 </div>
+<script type="module">
+    import { Carousel } from './js/components/carousel.js';
+    document.addEventListener('DOMContentLoaded', () => {
+        new Carousel();
+    });
+</script>
 </body>
 </html>
