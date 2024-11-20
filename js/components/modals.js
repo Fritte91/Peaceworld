@@ -1,17 +1,19 @@
 class ImageModal {
     constructor() {
-        this.modal = document.getElementById('newsModal');
-        this.modalImg = document.getElementById('modalImage');
-        this.closeBtn = document.querySelector('.modal-close');
-        this.zoomInBtn = document.querySelector('.zoom-btn.zoom-in');
-        this.zoomOutBtn = document.querySelector('.zoom-btn.zoom-out');
-        
-        this.scale = 1;
-        this.isDragging = false;
-        this.startPos = { x: 0, y: 0 };
-        this.currentPos = { x: 0, y: 0 };
-        
-        this.init();
+        if (document.getElementById('newsModal')) {
+            this.modal = document.getElementById('newsModal');
+            this.modalImg = document.getElementById('modalImage');
+            this.closeBtn = document.querySelector('.modal-close');
+            this.zoomInBtn = document.querySelector('.zoom-btn.zoom-in');
+            this.zoomOutBtn = document.querySelector('.zoom-btn.zoom-out');
+            
+            this.scale = 1;
+            this.isDragging = false;
+            this.startPos = { x: 0, y: 0 };
+            this.currentPos = { x: 0, y: 0 };
+            
+            this.init();
+        }
     }
 
     init() {
@@ -115,8 +117,10 @@ class ImageModal {
     }
 }
 
-// Initialize modal
-const imageModal = new ImageModal();
+// Initialize modal only if the element exists
+if (document.getElementById('newsModal')) {
+    const imageModal = new ImageModal();
+}
 
 // Update the openNewsModal function
 function openNewsModal(img) {

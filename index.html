@@ -410,6 +410,7 @@
     <script src="./js/components/modals.js"></script>
     <script src="./js/pages/home.js"></script>
     <script src="./js/components/map.js"></script>
+    <script src="./js/components/age-verification.js"></script>
     <!-- News Modal -->
 <div id="newsModal" class="news-image-modal">
     <span class="modal-close" onclick="closeNewsModal()">&times;</span>
@@ -426,5 +427,18 @@
         new Carousel();
     });
 </script>
+<!-- Age Verification Modal -->
+<div id="ageVerificationModal" class="age-verification-modal">
+    <div class="age-verification-content">
+        <img src="./images/brand/brandlogo.png" alt="Peace World Logo" class="age-verify-logo">
+        <h2 class="neon-text">Age Verification Required</h2>
+        <p>Welcome to Peace World Thailand</p>
+        <p>You must be 20 years or older to enter this site.</p>
+        <div class="age-verify-buttons">
+            <button id="verifyAge" class="verify-btn">I am 20 or older</button>
+            <button id="rejectAge" class="reject-btn">I am under 20</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
