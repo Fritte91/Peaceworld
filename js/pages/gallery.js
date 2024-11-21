@@ -329,9 +329,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to load gallery items
     function loadGallery(category, customItems = null) {
-        showLoadingSpinner();
+        const spinner = showLoadingSpinner();
 
         setTimeout(() => {
+            // Remove the spinner
+            if (spinner && spinner.parentNode) {
+                spinner.remove();
+            }
+
             galleryGrid.innerHTML = '';
             
             if (customItems) {
@@ -354,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             initializeLazyLoading();
-        }, 300);
+        }, 500);
     }
 
     // Create gallery item
@@ -455,10 +460,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const closeBtn = lightbox.querySelector('.close-btn');
         const prevBtn = lightbox.querySelector('.prev-btn');
         const nextBtn = lightbox.querySelector('.next-btn');
+        const lightboxContent = lightbox.querySelector('.lightbox-content');
 
         closeBtn.addEventListener('click', closeLightbox);
         prevBtn.addEventListener('click', () => navigateLightbox('prev'));
         nextBtn.addEventListener('click', () => navigateLightbox('next'));
+        
+        // Add click event to the lightbox background
+        lightbox.addEventListener('click', (e) => {
+            // Close only if clicking outside the content
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
         document.addEventListener('keydown', handleKeyboardNav);
     }
 
@@ -520,23 +535,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Loading spinner
     function showLoadingSpinner() {
-        const spinner = document.createElement('div');
-        spinner.className = 'loading-spinner';
-        
+        // Remove any existing spinner first
+        const existingSpinner = document.querySelector('.dots-spinner');
+        if (existingSpinner) {
+            existingSpinner.remove();
+        }
+
         const dotsSpinner = document.createElement('div');
         dotsSpinner.className = 'dots-spinner';
         
+        // Create 12 dots
         for (let i = 0; i < 12; i++) {
             const dot = document.createElement('div');
             dotsSpinner.appendChild(dot);
         }
         
-        spinner.appendChild(dotsSpinner);
-        document.body.appendChild(spinner);
+        // Add spinner to gallery grid
+        const galleryGrid = document.querySelector('.gallery-grid');
+        galleryGrid.innerHTML = '';
+        galleryGrid.appendChild(dotsSpinner);
 
-        setTimeout(() => {
-            spinner.remove();
-        }, 1000);
+        return dotsSpinner; // Return the spinner element for later removal
     }
 
     function showNoResults() {

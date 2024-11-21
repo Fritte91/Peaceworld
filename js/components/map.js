@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/dark-v11',
-            center: [100.6331, 14.0745], // Klong Luang coordinates
+            center: [100.631451, 14.075401], // Updated coordinates [longitude, latitude]
             zoom: 15,
             pitch: 45,
             projection: 'mercator',
@@ -30,14 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const marker = new mapboxgl.Marker({
                 color: "#00ff00"
             })
-                .setLngLat([100.6331, 14.0745])
+                .setLngLat([100.631451, 14.075401]) // Updated marker position
                 .addTo(map);
 
             // Add popup
             const popup = new mapboxgl.Popup({ offset: 25 })
                 .setHTML(
                     '<h3>Peace World</h3>' +
-                    '<p>123 Phahonyothin Rd, Klong Luang</p>'
+                    '<p>63/9 หมู่9 ซอยเทพกุญชร9 ตำบลคลองหนึ่ง คลองหนึ่ง Khlong Luang District, Pathum Thani 12120</p>'
                 );
 
             marker.setPopup(popup);

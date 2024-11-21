@@ -38,6 +38,16 @@
     overflow: hidden;
     border-radius: 10px;
     aspect-ratio: 3/4;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.poster-card:hover {
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    box-shadow: 
+        0 0 20px rgba(0, 255, 0, 0.2),
+        inset 0 0 15px rgba(0, 255, 0, 0.1);
+    transform: translateY(-3px);
 }
 
 .poster-card img {
@@ -48,7 +58,7 @@
 }
 
 .poster-card:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .poster-overlay {
@@ -59,6 +69,12 @@
     padding: 1rem;
     background: linear-gradient(transparent, rgba(0,0,0,0.8));
     color: white;
+    transition: all 0.3s ease;
+}
+
+.poster-card:hover .poster-overlay {
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
 .upcoming-events {
@@ -71,13 +87,29 @@
     display: flex;
     gap: 2rem;
     margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.event-item:hover {
+    transform: translateY(-3px);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    background: rgba(0, 255, 0, 0.05);
+    box-shadow: 
+        0 0 20px rgba(0, 255, 0, 0.1),
+        inset 0 0 15px rgba(0, 255, 0, 0.05);
 }
 
 .event-date {
     text-align: center;
     min-width: 80px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .event-date .day {
@@ -103,11 +135,14 @@
     border-radius: 5px;
     margin-top: 1rem;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .rsvp-btn:hover {
-    opacity: 0.9;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    background: #1fff1f;
 }
 
 @media (max-width: 768px) {

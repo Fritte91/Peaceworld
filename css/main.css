@@ -135,3 +135,34 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* This matches the style of other section titles */
+.section-title {
+    color: var(--accent-color);
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.section-title-container {
+    text-align: center;
+    position: relative;
+    margin: 50px 0;
+}
+
+.section-line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff00, transparent);
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
